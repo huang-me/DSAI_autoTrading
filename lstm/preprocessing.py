@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-def get_data(train_fname="data/training.csv"):
+def get_data(train_fname="../data/training.csv"):
     '''
     read data into dataframe
     '''

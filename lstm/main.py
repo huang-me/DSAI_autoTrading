@@ -6,7 +6,7 @@ import numpy as np
 
 if __name__ == "__main__":
     # load train datas
-    train_data = get_data('data/training.csv')
+    train_data = get_data('../data/training.csv')
     x_train, y_train = build_train(train_data)
     x_train, y_train = shuffle_train(x_train, y_train)
     # split validate
@@ -17,7 +17,7 @@ if __name__ == "__main__":
     # train model
     model = createTrain(x_train, y_train)
     # load predict data
-    # predict_data = get_data('data/testing.csv')
+    # predict_data = get_data('../data/testing.csv')
     # x_predict = np.array(predict_data)[np.newaxis, :, :]
     # test = model.predict(x_predict)
     # print(test)
