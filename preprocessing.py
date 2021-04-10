@@ -17,11 +17,7 @@ def get_data(train_fname="data/training.csv"):
     # train_data.plot(x=None, y='high', ax=ax1[1, 0])
     # train_data.plot(x=None, y='low', ax=ax1[1, 1])
     # plt.show()
-    '''
-    construct data into x, y
-    '''
-    x, y = build_train(train_data)
-    return x, y
+    return train_data
 
 def shuffle_train(x, y):
     np.random.seed(10)
@@ -32,11 +28,11 @@ def shuffle_train(x, y):
 def build_train(data, past=20, future=20):
     X_train, Y_train = [], []
     for i in range(data.shape[0]-past-future):
-        X_train.append(np.array(data.iloc[i:i+past]))
-        Y_train.append(np.array(data.iloc[i+past:i+past+future]['open']))
-    Y_train = np.array(Y_train)[:, :, np.newaxis]
+        X_train.append( np.array(data.iloc[i:i+past]) )
+        Y_train.append( np.array(data.iloc[i+past:i+past+future]['open']) )
     return np.array(X_train), np.array(Y_train)
 
 if __name__ == "__main__":
-    x, y = get_data()
+    data = get_data()
+    x, y = build_train(data)
     print(x.shape, y.shape)
