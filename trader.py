@@ -20,10 +20,10 @@ if __name__=='__main__':
 
     parser = argparse.ArgumentParser()
     parser.add_argument('--training',
-                       default='training_data.csv',
+                       default='./data/training.csv',
                        help='input training data file name')
     parser.add_argument('--testing',
-                        default='testing_data.csv',
+                        default='./data/testing.csv',
                         help='input testing data file name')
     parser.add_argument('--output',
                         default='output.csv',
