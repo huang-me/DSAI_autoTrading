@@ -44,7 +44,7 @@ if __name__=='__main__':
     data_df['date']=date
 
     ## we store the stockstats technical indicator column names in config.py
-    tech_indicator_list=config.TECHNICAL_INDICATORS_LIST+['kdjk','open_2_sma','boll','close_10.0_le_5_c','wr_10','dma','trix']
+    tech_indicator_list=['macd','macds','macdh','kdjk','kdjd','close_5_sma','close_10_sma','close_20_sma','close_60_sma']  
     print(tech_indicator_list)
 
     fe = FeatureEngineer(
