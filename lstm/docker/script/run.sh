@@ -1,3 +1,3 @@
 # !bin/bash
 
-docker run -it --rm --gpus all -v ${PWD}:/home -v /tmp/.X11-unix:/tmp/.X11-unix dsai_hw2 bash
+docker run -it --rm --gpus all -v ${PWD}:/home -p 8888:8888 dsai_hw2

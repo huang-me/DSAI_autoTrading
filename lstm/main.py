@@ -6,7 +6,7 @@ import numpy as np
 
 if __name__ == "__main__":
     # load train datas
-    train_data = get_data('../data/training.csv')
+    train_data = get_data('./data/training.csv')
     x_train, y_train = build_train(train_data)
     x_train, y_train = shuffle_train(x_train, y_train)
     # split validate
