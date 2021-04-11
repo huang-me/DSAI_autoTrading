@@ -1,0 +1,5 @@
+.vscode/
+.~lock.testing.csv#
+StockProfitCalculator/
+tensorboard_log/
+trained_models/
