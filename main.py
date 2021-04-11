@@ -65,14 +65,14 @@ if __name__=='__main__':
 
     env_kwargs = {
         "hmax": 1, 
-        "initial_amount": 10000, 
+        "initial_amount": 100000, 
         "buy_cost_pct": 0, 
         "sell_cost_pct": 0, 
         "state_space": state_space, 
         "stock_dim": stock_dimension, 
         "tech_indicator_list": tech_indicator_list, 
         "action_space": stock_dimension, 
-        "reward_scaling": 1e-4
+        "reward_scaling": 1e-5
     }
     e_train_gym = StockTradingEnv(df = train, **env_kwargs)
     env_train, _ = e_train_gym.get_sb_env()
@@ -109,16 +109,7 @@ if __name__=='__main__':
 
     e_trade_gym = StockTradingEnv(df = trade, **env_kwargs)
 
-    max_profit=0
     actions=None
-    for _ in range(10):
-        df_account_value, df_actions = DRLAgent.DRL_prediction(model=trained_ppo,environment = e_trade_gym)
-        final_profit=df_account_value['account_value'].iloc[-1]
-
-        if final_profit>max_profit:
-            max_profit=final_profit
-            actions=pd.DataFrame(np.array(df_actions['actions'],dtype='int'))
-
-    print(actions)
-    print(max_profit)
+    df_account_value, df_actions = DRLAgent.DRL_prediction(model=trained_ppo,environment = e_trade_gym)
+    actions=pd.DataFrame(np.array(df_actions['actions'],dtype='int'))
     actions.to_csv(args.output,index=False,header=False)
